@@ -1,0 +1,37 @@
+{
+  "title": "About Club Plugin",
+  "story": [
+  {
+    "type": "paragraph",
+    "id": "9db3126f5d9fbb65",
+    "text": "Here we describe the purpose of the plugin and include a sample."
+  },
+  {
+    "type": "club",
+    "id": "f525c2bef1d61cb0",
+    "text": "This is text in the new plugin. You can *double-click* to edit it too."
+  }
+],
+  "journal": [
+  {
+    "type": "create",
+    "item": {
+      "title": "About Club Plugin",
+      "story": [
+  {
+    "type": "paragraph",
+    "id": "9db3126f5d9fbb65",
+    "text": "Here we describe the purpose of the plugin and include a sample."
+  },
+  {
+    "type": "club",
+    "id": "f525c2bef1d61cb0",
+    "text": "This is text in the new plugin. You can *double-click* to edit it too."
+  }
+]
+    },
+    "date": 1497126289000,
+    "certificate": "from mkplugin.sh"
+  }
+]
+}
