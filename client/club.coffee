@@ -84,7 +84,7 @@ parse = ($item, item) ->
       "<span>loading #{siteslug}</span>"
 
   includeJoin = (line) ->
-    "<button>Join</button>"
+    "<button class=join>Join</button>"
 
   expand = (text) ->
     text
@@ -100,6 +100,14 @@ parse = ($item, item) ->
     lines.push expand more.shift()
   lines.push newline()
   lines.join ' '
+
+joined = (data) ->
+  console.log 'joined', data
+
+join = (founder, slug, id) ->
+  console.log 'join', founder, id
+  data = {site: location.host}
+  $.post "http://#{founder}/plugin/club/#{slug}/#{id}",data,joined
 
 emit = ($item, item) ->
   $item.append """
@@ -118,6 +126,16 @@ bind = ($item, item) ->
     e.preventDefault()
     e.stopPropagation()
     console.log 'roster sites', $(e.target).data('sites').split(' ')
+  $item.find('.join').click (e) ->
+    id = $item.data('id')
+    page = $item.parents('.page').data('data')
+    present = false
+    for action in page.journal
+      present ||= action.id = id
+      if present and action.site
+        $(e.target).prop("disabled",true);
+        return join action.site, wiki.asSlug(page.title), id
+
 
 window.plugins.club = {emit, bind} if window?
 module.exports = {parse, includes} if module?
